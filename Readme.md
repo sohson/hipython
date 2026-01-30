@@ -16,12 +16,11 @@
 
 ## :rocket: 프로젝트
 > 1차 프로젝트 {DON'워리}
-> 착오송금반환지원 AI Agent: 금융 × 공공제도 × 생성형 AI 서비스 기획
+
+> **착오송금반환지원 AI Agent**: 금융 × 공공제도 × 생성형 AI 서비스 기획
 - 주요기능
   - 소요 기간 및 비용 예측
-    - 예측 산식 모델링
   - AI 기반 원스톱 안내 
-    - OCR, RAG, Gen-AI를 활용 
 - 적용된 기술 스택
   - **Language**
     - TypeScript (App/API), Python (AI/OCR/Data)
