@@ -5,13 +5,15 @@
 
 
 ## 📋 이력
+- 중앙대학교 경영학 학사 (졸업 예정)
+- 59th KICPA
+- Deloitte안진 FAS-Valuation 인턴 (4m)
+- 삼정KPMG Future Academy 8기
 
-
-## ☎️ 연락처
+##  연락처
 - 이메일: [035486@naver.com] (035486@naver.com)
 - GitHub : [https://github.com/sohson] (https://github.com/sohson)
-- LinkedIn :
-- Ins: 
 
 ## :rocket: 프로젝트
 - 1차 프로젝트 {DON'워리}
+ * 착오송금반환지원 AI Agent 
