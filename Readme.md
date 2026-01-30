@@ -5,10 +5,7 @@
 
 
 ## 📋 이력
-- 중앙대학교 경영학 학사
-- 59th KICPA
-- Deloitte안진 FAS-Valuation 인턴 4m
-- 삼정KPMG Future Academy 8기
+
 
 ## ☎️ 연락처
 - 이메일: [035486@naver.com] (035486@naver.com)
