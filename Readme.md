@@ -2,7 +2,7 @@
 
 ## :seedling: About me
  
-
+---
 
 ## 📋 이력
 - 중앙대학교 경영학 학사 (졸업 예정)
@@ -10,12 +10,11 @@
 - Deloitte안진 FAS-Valuation 인턴 (4m)
 - 삼정KPMG Future Academy 8기
 
-##  연락처
-- 이메일: [035486@naver.com] 
-- GitHub : [https://github.com/sohson] 
+---
 
 ## :rocket: 프로젝트
 > 1차 프로젝트 **DON'워리**
+>
 > **착오송금반환지원 AI Agent**: 금융 × 공공제도 × 생성형 AI 서비스 기획
 - 주요기능
   - 소요 기간 및 비용 예측
@@ -29,3 +28,9 @@
 | **Backend/Infra** | AWS (API Gateway, Lambda, EKS, Aurora/PostgreSQL) |
 | **AI/ML** | ChatGPT (GPT-4o), LangChain, Amazon Extract (OCR), RAG |
 | **DevOps** | GitHub Actions, Terraform, ArgoCD, Datadog |
+
+---
+
+##  연락처
+- 이메일: [035486@naver.com] 
+- GitHub : [https://github.com/sohson] 
