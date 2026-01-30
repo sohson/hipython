@@ -1,12 +1,12 @@
 
 ## :seedling: About me
-안녕하세요. 손소희입니다.
+### 안녕하세요. 손소희입니다.
 
 ---
 
 ## 📋 이력
-- ** 중앙대학교 경영학 학사 (졸업 예정)** 
-- ** 59th KICPA**
+- **중앙대학교 경영학 학사 (졸업 예정)** 
+- **59th KICPA**
 - Deloitte안진 FAS-Valuation 인턴 (4m)
 - 삼정KPMG Future Academy 8기
 
