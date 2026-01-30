@@ -23,10 +23,13 @@
   - AI 기반 원스톱 안내 
     - OCR, RAG, Gen-AI를 활용 
 - 적용된 기술 스택
-| 분류 | 기술 스택 |
-| :--- | :--- |
-| **Language** | TypeScript (App/API), Python (AI/OCR/Data) |
-| **Frontend** | React Native, React Query, Figma (Design) |
-| **Backend/Infra** | AWS (API Gateway, Lambda, EKS, Aurora/PostgreSQL) |
-| **AI/ML** | ChatGPT (GPT-4o), LangChain, Amazon Extract (OCR), RAG |
-| **DevOps** | GitHub Actions, Terraform, ArgoCD, Datadog |
+  - **Language**
+    - TypeScript (App/API), Python (AI/OCR/Data)
+  - **Frontend**
+    - React Native, React Query, Figma (Design)
+  - **Backend/Infra**
+   - AWS (API Gateway, Lambda, EKS, Aurora/PostgreSQL)
+  - **AI/ML**
+    - ChatGPT (GPT-4o), LangChain, Amazon Extract (OCR), RAG
+  - **DevOps**
+    - GitHub Actions, Terraform, ArgoCD, Datadog
