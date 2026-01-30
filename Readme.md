@@ -1,9 +1,12 @@
+### 안녕하세요, 손소희입니다.
+
+
 ## :seedling: About Me
-**경영학적 인사이트와 AI 기술력을 겸비한 전략가, 손소희입니다.**
+**경영학적 인사이트와 AI 기술력을 겸비한 전략가**
 
 회계/재무 분야의 전문성을 바탕으로 기술과 비즈니스의 접점을 탐구합니다. 특히 **생성형 AI(Generative AI)**를 활용해 복잡한 금융, 재무서비스의 진입장벽을 낮추는 솔루션 기획 및 개발에 관심이 있습니다.
 
-### :clipboard: Experience
+## :clipboard: 이력
 * **Education**: 중앙대학교 경영학 학사 (졸업 예정)
 * **Certification**: 59th KICPA, 재무빅데이터분석사(FDA) 2급, 컴퓨터활용능력 1급
 * **Professional**: Deloitte 안진 FAS-Valuation 인턴 (4m)
