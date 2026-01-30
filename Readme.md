@@ -3,12 +3,11 @@
 ## :seedling: About me
  
 
-## :rocket: 프로젝트
-- 1차 프로젝트 {DON'워리}
 
 ## 📋 이력
-- 경영학 전공
+- 중앙대학교 경영학 학사
 - 59th KICPA
+- Deloitte안진 FAS-Valuation 인턴 4m
 - 삼정KPMG Future Academy 8기
 
 ## ☎️ 연락처
@@ -16,3 +15,6 @@
 - GitHub : [https://github.com/sohson] (https://github.com/sohson)
 - LinkedIn :
 - Ins: 
+
+## :rocket: 프로젝트
+- 1차 프로젝트 {DON'워리}
