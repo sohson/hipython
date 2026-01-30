@@ -11,9 +11,22 @@
 - 삼정KPMG Future Academy 8기
 
 ##  연락처
-- 이메일: [035486@naver.com] (035486@naver.com)
-- GitHub : [https://github.com/sohson] (https://github.com/sohson)
+- 이메일: [035486@naver.com] 
+- GitHub : [https://github.com/sohson] 
 
 ## :rocket: 프로젝트
-- 1차 프로젝트 {DON'워리}
- * 착오송금반환지원 AI Agent 
+> 1차 프로젝트 {DON'워리}
+> 착오송금반환지원 AI Agent: 금융 × 공공제도 × 생성형 AI 서비스 기획
+- 주요기능
+  - 소요 기간 및 비용 예측
+    - 예측 산식 모델링
+  - AI 기반 원스톱 안내 
+    - OCR, RAG, Gen-AI를 활용 
+- 적용된 기술 스택
+| 분류 | 기술 스택 |
+| :--- | :--- |
+| **Language** | TypeScript (App/API), Python (AI/OCR/Data) |
+| **Frontend** | React Native, React Query, Figma (Design) |
+| **Backend/Infra** | AWS (API Gateway, Lambda, EKS, Aurora/PostgreSQL) |
+| **AI/ML** | ChatGPT (GPT-4o), LangChain, Amazon Extract (OCR), RAG |
+| **DevOps** | GitHub Actions, Terraform, ArgoCD, Datadog |
