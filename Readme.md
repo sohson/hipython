@@ -6,7 +6,7 @@
 ## :rocket: 프로젝트
 - 1차 프로젝트 {DON'워리}
 
-## 📋: 이력
+## 📋 이력
 - 경영학 전공
 - 59th KICPA
 - 삼정KPMG Future Academy 8기
