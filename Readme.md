@@ -1,12 +1,12 @@
-# 안녕하세요. 손소희입니다.
 
 ## :seedling: About me
- 
+안녕하세요. 손소희입니다.
+
 ---
 
 ## 📋 이력
-- 중앙대학교 경영학 학사 (졸업 예정)
-- 59th KICPA
+- ** 중앙대학교 경영학 학사 (졸업 예정)** 
+- ** 59th KICPA**
 - Deloitte안진 FAS-Valuation 인턴 (4m)
 - 삼정KPMG Future Academy 8기
 
@@ -19,7 +19,7 @@
 - 주요기능
   - 소요 기간 및 비용 예측
   - AI 기반 원스톱 안내 
-- 적용된 기술 스택
+- 적용된 기술
 
 | 분류 | 기술 스택 |
 | :--- | :--- |
@@ -32,11 +32,5 @@
 ---
 
 ## 📞 연락처
-<p align="left">
-- <a href="mailto:035486@naver.com">
-  <img src="https://img.shields.io/badge/Email-181717?style=flat-square&logo=Gmail&logoColor=white"/> 
-
- [035486@naver.com]
-<p align="left">
-- <a href="https://github.com/sohson"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/></a> [https://github.com/sohson]
-</p> 
+- E-Mail: [035486@naver.com]
+- GitHub: [https://github.com/sohson]
