@@ -57,4 +57,4 @@
     * 불특정 다수를 향한 할인 프로모션보다, 구매력을 갖춘 고객을 대상으로 한 **프리미엄 번들링(Bundling)** 마케팅 전개.
 
 ---
-*Created by Data Analyst | 2024*
+*Created by Data Analyst | 2026*
