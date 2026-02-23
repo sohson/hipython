@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sohee's WebPage</title>
+
+    <style>
+      section {
+        border: 1px solid #ccc;
+        padding: 16px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h2>홈카페</h2>
+      <p>어서오세요!</p>
+
+      <ul>
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+        <li>카푸치노</li>
+        <li>밀크티</li>
+      </ul>
+
+      <button id="orderBtn">주문하기</button>
+<br><br>
+      <!-- 🔹 이미지도 section 안에 넣음 -->
+      <img src="image/images.jpg">
+    </section>
+
+    <script>
+      document
+        .getElementById("orderBtn")
+        .addEventListener("click", function () {
+          alert("주문 기능은 연습용입니다.");
+        });
+    </script>
+  </body>
+</html>
