@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>감성 분석기</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0d0f;
+      --surface: #16161a;
+      --border: #2a2a32;
+      --accent-pos: #4ade80;
+      --accent-neg: #f87171;
+      --accent-blue: #60a5fa;
+      --text-primary: #f0f0f4;
+      --text-muted: #6b6b80;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Noto Sans KR', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* 배경 그라디언트 orb */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(96,165,250,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    /* 헤더 */
+    header {
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    header .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* 카드 */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    /* 텍스트 영역 */
+    .input-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    textarea#inputText {
+      width: 100%;
+      height: 130px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 14px 16px;
+      resize: none;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    textarea#inputText::placeholder {
+      color: var(--text-muted);
+    }
+
+    textarea#inputText:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .input-hint {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* 버튼 */
+    button#analyzeBtn {
+      margin-top: 16px;
+      width: 100%;
+      padding: 14px;
+      background: var(--accent-blue);
+      color: #0d0d0f;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    button#analyzeBtn:hover:not(:disabled) {
+      opacity: 0.88;
+    }
+
+    button#analyzeBtn:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    button#analyzeBtn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* 결과 영역 */
+    #result-wrapper {
+      margin-top: 20px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+
+    #result-wrapper.visible {
+      max-height: 300px;
+    }
+
+    .result-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .result-card.positive {
+      border-color: rgba(74, 222, 128, 0.35);
+    }
+
+    .result-card.negative {
+      border-color: rgba(248, 113, 113, 0.35);
+    }
+
+    .result-card.error {
+      border-color: rgba(248, 113, 113, 0.35);
+    }
+
+    /* 감성 배지 */
+    .sentiment-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge.positive {
+      background: rgba(74, 222, 128, 0.12);
+      color: var(--accent-pos);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+    }
+
+    .badge.negative {
+      background: rgba(248, 113, 113, 0.12);
+      color: var(--accent-neg);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+
+    .emoji {
+      font-size: 20px;
+    }
+
+    /* 신뢰도 바 */
+    .confidence-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .confidence-label span:last-child {
+      font-family: 'DM Mono', monospace;
+      color: var(--text-primary);
+    }
+
+    .bar-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .bar-fill.positive { background: var(--accent-pos); }
+    .bar-fill.negative { background: var(--accent-neg); }
+
+    /* 입력 텍스트 표시 */
+    .input-echo {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .input-echo strong {
+      color: var(--text-primary);
+      font-weight: 400;
+    }
+
+    /* 에러 */
+    .error-msg {
+      color: var(--accent-neg);
+      font-size: 14px;
+    }
+
+    /* 로딩 스피너 */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(13,13,15,0.4);
+      border-top-color: #0d0d0f;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="label">NLP · Sentiment Analysis</div>
+      <h1>감성 분석기</h1>
+      <p>텍스트의 긍정 / 부정 감성을 AI가 분석합니다</p>
+    </header>
+
+    <div class="card">
+      <div class="input-label">텍스트 입력</div>
+      <textarea id="inputText" placeholder="분석할 텍스트를 입력하세요..."></textarea>
+      <div class="input-hint">Enter — 분석 &nbsp;|&nbsp; Shift+Enter — 줄바꿈</div>
+
+      <button id="analyzeBtn">분석하기</button>
+
+      <div id="result-wrapper">
+        <div id="result" class="result-card"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "http://127.0.0.1:8000/sentiment";
+
+    async function analyzeSentiment() {
+      const text = document.getElementById("inputText").value.trim();
+      if (!text) {
+        alert("텍스트를 입력해주세요.");
+        return;
+      }
+
+      setLoading(true);
+      hideResult();
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text }),
+        });
+
+        if (!response.ok) throw new Error(`서버 오류 (${response.status})`);
+
+        const data = await response.json();
+        displayResult(data);
+
+      } catch (err) {
+        console.error(err);
+        displayError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    function displayResult(data) {
+      const isPos = data.label === "positive";
+      const label = isPos ? "positive" : "negative";
+      const emoji = isPos ? "😊" : "😞";
+      const percent = (data.score * 100).toFixed(2);
+
+      const resultEl = document.getElementById("result");
+      resultEl.className = "result-card " + label;
+      resultEl.innerHTML = `
+        <div class="sentiment-row">
+          <span class="emoji">${emoji}</span>
+          <span class="badge ${label}">${label}</span>
+        </div>
+        <div class="confidence-label">
+          <span>신뢰도</span>
+          <span>${percent}%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill ${label}" id="barFill"></div>
+        </div>
+        <div class="input-echo">
+          <strong>입력:</strong> ${escapeHtml(data.text)}
+        </div>
+      `;
+
+      showResult();
+
+      // 바 애니메이션 (다음 프레임에서 width 적용)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.getElementById("barFill").style.width = percent + "%";
+        });
+      });
+    }
+
+    function displayError(message) {
+      const resultEl = document.getElementById("result");
+      resultEl.className = "result-card error";
+      resultEl.innerHTML = `<p class="error-msg">⚠ ${escapeHtml(message)}</p>`;
+      showResult();
+    }
+
+    function setLoading(on) {
+      const btn = document.getElementById("analyzeBtn");
+      btn.disabled = on;
+      btn.innerHTML = on
+        ? '<span class="spinner"></span>분석 중...'
+        : "분석하기";
+    }
+
+    function showResult() {
+      document.getElementById("result-wrapper").classList.add("visible");
+    }
+
+    function hideResult() {
+      document.getElementById("result-wrapper").classList.remove("visible");
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("analyzeBtn").addEventListener("click", analyzeSentiment);
+      document.getElementById("inputText").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          analyzeSentiment();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
