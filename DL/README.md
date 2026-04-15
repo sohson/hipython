@@ -3,8 +3,6 @@
 
 ---
 
-## 📁 프로젝트 목록
-
 ### 🎽 Fashion MNIST CNN 이미지 분류 (`20_Fashion.ipynb`)
 
 **개요**: Keras의 Fashion MNIST 데이터셋(10개 의류 카테고리, 70,000장)을 활용한 CNN 기반 이미지 분류기 개발 및 성능 비교 실험
