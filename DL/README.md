@@ -1,6 +1,5 @@
-# 🧠 Deep Learning 프로젝트 모음
-
-> TensorFlow / Keras 기반 딥러닝 실습 프로젝트 — CNN, RNN, DNN을 활용한 이미지 분류·시계열 예측·감성 분석
+# 🧠 Deep Learning 
+> TensorFlow / Keras 기반 딥러닝 실습 프로젝트 — CNN, RNN, DNN을 활용한 이미지 분류
 
 ---
 
